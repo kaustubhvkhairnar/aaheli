@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  /** Slider */
+  /** Tabs slider */
   $(".slide-toggle").click(function () {
     if ($("#slide-item-1").is(":checked")) {
       $(".icons-1").removeClass("fal");
@@ -51,13 +51,13 @@ $(document).ready(function () {
       $(".icons-5").removeClass("fas");
       $(".icons-5").addClass("fal");
     }
-
+    /*** Filters slider */
     $(".bar-toggle").click(function () {
       if ($("#bar-item-1").is(":checked")) {
         $(".bar-icons-1").removeClass("fal");
         $(".bar-icons-1").addClass("fas");
         hideFilterTabs();
-        $(".request-tab").slideDown();
+        $(".requests-tab").slideDown();
       } else {
         $(".bar-icons-1").removeClass("fas");
         $(".bar-icons-1").addClass("fal");
@@ -118,6 +118,7 @@ $(document).ready(function () {
     $(".edit-popup-card-bg").hide();
   });
 
+
   $(".add-item-btn").click(function () {
     var $items = $("<div/>", { class: "items" }),
       $label1 = $("<label/>", { for: "items_names", text: "Item Name" }),
@@ -170,7 +171,7 @@ function hideTabs() {
 
 // to hide the filter tabs
 function hideFilterTabs() {
-  $(".request-tab").hide();
+  $(".requests-tab").hide();
   $(".ongoing-tab").hide();
   $(".delivered-tab").hide();
 }

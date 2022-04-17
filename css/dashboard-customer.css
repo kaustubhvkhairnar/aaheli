@@ -55,7 +55,7 @@ input[type="number"] {
 
 body {
   background-image: url("/images/Background.png");
-  background-size: cover;
+  background-size: 80vw;
   background-color: var(--aaheli-lightest-grey);
 }
 

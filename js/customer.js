@@ -5,6 +5,7 @@ $(document).ready(function () {
       $(".icons-1").removeClass("fal");
       $(".icons-1").addClass("fas");
       hideTabs();
+      $("#title").text("Dashboard");
       $(".dashboard-tab").slideDown();
     } else {
       $(".icons-1").removeClass("fas");
@@ -14,6 +15,7 @@ $(document).ready(function () {
       $(".icons-2").removeClass("fal");
       $(".icons-2").addClass("fas");
       hideTabs();
+      $("#title").text("New Order");
       $(".new-order-tab").slideDown();
       $(".dropdown").hover(
         function () {
@@ -35,6 +37,7 @@ $(document).ready(function () {
       $(".icons-3").removeClass("fal");
       $(".icons-3").addClass("fas");
       hideTabs();
+      $("#title").text("Your Orders");
       $(".orders-tab").slideDown();
     } else {
       $(".icons-3").removeClass("fas");
@@ -44,6 +47,7 @@ $(document).ready(function () {
       $(".icons-4").removeClass("fal");
       $(".icons-4").addClass("fas");
       hideTabs();
+      $("#title").text("Your Recipes");
       $(".recipe-tab").slideDown();
     } else {
       $(".icons-4").removeClass("fas");
@@ -53,6 +57,7 @@ $(document).ready(function () {
       $(".icons-5").removeClass("fal");
       $(".icons-5").addClass("fas");
       hideTabs();
+      $("#title").text("Your Profile");
       $(".profile-tab").slideDown().css("display", "grid");
     } else {
       $(".icons-5").removeClass("fas");

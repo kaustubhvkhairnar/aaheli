@@ -55,7 +55,7 @@ input[type="number"] {
 
 html {
   background-image: url("/images/Background.png");
-  background-size: cover;
+  background-size: 80vw;
   background-color: var(--aaheli-lightest-grey);
 }
 
@@ -732,6 +732,15 @@ time {
   color: var(--aaheli-black);
 }
 /***************************************** END RECIPE TAB ********************************************/
+
+/***************************************** START STOCKS TAB ****************************************/
+
+.stocks-tab {
+  text-align: center;
+}
+
+
+/***************************************** END STOCKS TAB ****************************************/
 
 /***************************************** START FOOTER  ***************************************/
 .header > ul,
