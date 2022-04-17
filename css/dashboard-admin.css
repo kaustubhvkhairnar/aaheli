@@ -108,7 +108,7 @@ time {
   min-width: 100%;
   font-family: "Poppins Bold", sans-serif;
 }
-
+/**************************************** ASSETS ***********************************************/
 .red-btn,
 .black-btn {
   color: var(--aaheli-white);
@@ -159,6 +159,14 @@ time {
 .delivered-tab,
 .ongoing-tab {
   display: none;
+}
+
+.dashboard-tab,
+.customers-tab,
+.orders-tab,
+.recipe-tab,
+.stocks-tab {
+  text-align: center;
 }
 
 /********************************** SLIDERS SECTION *************************************************/
@@ -291,9 +299,7 @@ time {
 /********************************** END SLIDER SECTION ******************************************/
 
 /********************************* START DASHBOARD TAB *******************************************/
-.dashboard-tab {
-  text-align: center;
-}
+
 .dashboard-tab > h1 {
   color: var(--aaheli-red);
 }
@@ -311,6 +317,7 @@ time {
 /************************************* END DASHBOARD TAB ********************************************/
 
 /************************************ START CUSTOMERS TAB *****************************************/
+
 .customer-card {
   display: flex;
   width: 500px;
@@ -340,6 +347,7 @@ time {
   max-width: 250px;
 }
 .customer-details > p:nth-child(2) {
+  margin-top: 0;
   text-align: start;
   font-size: 12px;
   width: 250px;
@@ -370,9 +378,6 @@ time {
 /*************************************** END CUSTOMERS TAB *******************************************/
 
 /**************************************** START ORDERS TAB *******************************************/
-.orders-tab {
-  text-align: center;
-}
 
 /** FILTERS BAR**/
 .filter-container {
@@ -601,7 +606,6 @@ time {
   position: fixed;
   top: 0;
   left: 0;
-  /* display: flex; */
   background-color: rgba(112, 128, 175, 0.2);
   justify-content: center;
   align-items: center;
@@ -710,24 +714,32 @@ time {
 }
 
 .no-orders-tab p,
-.no-recipes-tab p {
+.no-recipes-tab p,
+.no-customers-tab p,
+.no-stocks-tab p {
   color: var(--aaheli-red);
   margin-right: 10px;
 }
 
 .no-orders-tab,
-.no-recipes-tab {
+.no-recipes-tab,
+.no-customers-tab,
+.no-stocks-tab {
   margin-top: 140px;
 }
 
 .no-orders-tab h1,
-.no-recipes-tab h1 {
+.no-recipes-tab h1,
+.no-customers-tab h1,
+.no-stocks-tab h1 {
   font-family: "Poppins Bold";
   font-size: 30px;
 }
 
 .no-orders-tab a,
-.no-recipes-tab a {
+.no-recipes-tab a,
+.no-customers-tab a,
+.no-stocks-tab a {
   font-size: 15px;
   color: var(--aaheli-black);
 }
@@ -739,6 +751,86 @@ time {
   text-align: center;
 }
 
+.stocks-list-tab > button {
+  font-size: 12px;
+  margin-left: 472px;
+  margin-top: 12px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.stocks-list-tab p {
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+/*** STOCKS CARD***/
+.stocks-card {
+  display: flex;
+  width: 500px;
+  padding: 15px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin-top: 17px;
+  margin-left: 498px;
+  margin-bottom: 10px;
+}
+
+.stocks-card > p:first-child {
+  margin-top: 16px;
+  color: var(--aaheli-red);
+  font-weight: bold;
+}
+
+.stocks-details {
+  margin-left: 10px;
+}
+.stocks-details > p:nth-child(1) {
+  text-align: start;
+  min-width: 200px;
+  max-width: 250px;
+}
+.stocks-details > p:nth-child(2) {
+  font-family: "Poppins Bold";
+  font-size: 15px;
+  margin-top: 0;
+  text-align: start;
+  color: var(--aaheli-red);
+  width: 250px;
+}
+
+.stocks-card .edit-section {
+  display: flex;
+  margin-left: 35px;
+}
+
+.stocks-card .edit-section > p:first-child {
+  margin-top: 16px;
+  color: var(--aaheli-green);
+  cursor: pointer;
+}
+
+.stocks-card .edit-section > p:first-child:hover {
+  color: var(--aaheli-dark-green);
+}
+
+.stocks-card .edit-section > p:nth-child(2) {
+  margin-top: 16px;
+  color: var(--aaheli-red);
+  cursor: pointer;
+}
+
+.stocks-card .edit-section > p:nth-child(2):hover {
+  color: var(--aaheli-dark-red);
+}
+
+.stocks-card .edit-section > button {
+  margin-top: 8px;
+  height: 40px;
+  margin-left: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
 
 /***************************************** END STOCKS TAB ****************************************/
 
