@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon" />
-    <link rel="stylesheet" href="css/dashboard-customer.css" />
+    <link rel="stylesheet" href="css/dashboard-admin.css" />
 
     <link
       rel="stylesheet"
@@ -22,7 +22,7 @@
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
-    <title>Dashboard</title>
+    <title id="title">Dashboard</title>
   </head>
 
   <body>
@@ -36,7 +36,7 @@
         <li>
           <a class="link-btn logo-title" href="/index.php"> Aaheli </a>
         </li>
-        <li id="login-btn">
+        <li id="logout-btn">
           <a class="link-btn" href="/log-out.php">
             Log Out
             <i class="fal fa-sign-out"></i>
@@ -67,9 +67,7 @@
           class="slide-toggle"
         />
         <label for="slide-item-2" class="new-order">
-          <span
-            ><i class="fal fa-plus-square icons-2"></i> New Order</span
-          ></label
+          <span><i class="fal fa-users icons-2"></i> Customers</span></label
         >
 
         <!-- Item 3 -->
@@ -104,9 +102,7 @@
           class="slide-toggle"
         />
         <label for="slide-item-5">
-          <span>
-            <i class="fal fa-user-circle icons-5"></i> Profile</span
-          ></label
+          <span> <i class="fal fa-database icons-5"></i> Stocks</span></label
         >
         <div class="clear"></div>
 
@@ -122,109 +118,32 @@
           <h1>Welcome to Aaheli</h1>
         </div>
 
-        <div class="new-order-tab">
-          <div class="form-card">
-            <form action="" method="post">
-              <label for="dropdown" id="recipe_label">Recipe</label>
-              <input
-                type="hidden"
-                name="recipe_selection"
-                id="recipe_selection"
-              />
-              <div class="dropdown" id="dropdown">
-                <button class="dropbtn" type="button">
-                  Select Recipe<i
-                    class="fas fa-angle-down dropdown-icon"
-                    style="float: right; margin-top: 5px"
-                  ></i>
-                </button>
-                <div class="dropdown-content">
-                  <button type="button">Khamang Dhokla</button>
-                  <button type="button">Prosix Dosa</button>
-                  <button type="button">Khamang Dhokla</button>
-                  <button type="button">Prosix Dosa</button>
-
-                  <button type="button" class="create-btn">
-                    <i class="fal fa-plus-circle"></i>&nbsp;Create new recipe
-                  </button>
-                </div>
+        <div class="customers-tab">
+          <div class="no-customers-tab"></div>
+          <div class="customer-list-tab">
+            <div class="customer-card">
+              <p>1240</p>
+              <div class="customer-details">
+                <p>Rachel Green</p>
+                <p>Surekha Industriessdsdsdsdsd PVT.LTD</p>
               </div>
-              <br />
-              <label for="quantity" id="quantity_label">Quantity</label>
-              <input type="number" name="recipe_quantity" />
-              <br />
-              <input type="submit" class="black-btn" value="Place Order" />
-            </form>
-          </div>
 
-          <div class="popup-card-bg">
-            <div class="popup-card">
-              <h2>Create New Recipe</h2>
+              <div class="edit-section">
+                <p><i class="fal fa-trash-alt"></i></p>
+                <button type="button" class="black-btn">View</button>
+              </div>
+            </div>
+            <div class="customer-card">
+              <p>1240</p>
+              <div class="customer-details">
+                <p>Rachel Green</p>
+                <p>Surekha Industriessdsdsdsdsd PVT.LTD</p>
+              </div>
 
-              <i class="fal fa-times"></i>
-              <div class="sub-line"></div>
-
-              <form action="" method="post">
-                <label for="recipe_name">Recipe Name</label>
-                <input type="text" id="recipe_name" name="recipe_name" />
-                <div class="popup-card-middle">
-                  <div class="items">
-                    <label for="item_names">Item Name</label>
-                    <input type="text" id="item_names" name="item_names[]" />
-                    <label for="item_perc">Percentage</label>
-                    <input type="number" id="item_perc" name="item_perc[]" />
-                    <i class="fal fa-percent"></i>
-                  </div>
-
-                  <div class="items">
-                    <label for="item_names">Item Name</label>
-                    <input type="text" id="item_names" name="item_names[]" />
-                    <label for="item_perc">Percentage</label>
-                    <input type="number" id="item_perc" name="item_perc[]" />
-                    <i class="fal fa-percent"></i>
-                  </div>
-
-                  <div class="items">
-                    <label for="item_names">Item Name</label>
-                    <input type="text" id="item_names" name="item_names[]" />
-                    <label for="item_perc">Percentage</label>
-                    <input type="number" id="item_perc" name="item_perc[]" />
-                    <i class="fal fa-percent"></i>
-                  </div>
-
-                  <div class="items">
-                    <label for="item_names">Item Name</label>
-                    <input type="text" id="item_names" name="item_names[]" />
-                    <label for="item_perc">Percentage</label>
-                    <input type="number" id="item_perc" name="item_perc[]" />
-                    <i class="fal fa-percent"></i>
-                  </div>
-                </div>
-
-                <div class="popup-footer">
-                  <input
-                    type="button"
-                    class="black-btn add-item-btn"
-                    id="add_item"
-                    name="add_item"
-                    value="Add item"
-                  />
-                  <input
-                    type="submit"
-                    class="black-btn"
-                    id="create_recipe"
-                    name="create_recipe"
-                    value="Create"
-                  />
-                  <input
-                    type="button"
-                    class="cancel-btn"
-                    id="cancel_btn"
-                    name="cancel_btn"
-                    value="Cancel"
-                  />
-                </div>
-              </form>
+              <div class="edit-section">
+                <p><i class="fal fa-trash-alt"></i></p>
+                <button type="button" class="black-btn">View</button>
+              </div>
             </div>
           </div>
         </div>
@@ -233,6 +152,7 @@
           <!-- <div class="no-orders-tab">
             <p><i class="fab fa-opencart fa-4x"></i></p>
             <h1>No orders yet</h1>
+            <a href="">Go to new order</a>
           </div> -->
           <div class="orders-list-tab">
             <div class="filter-container">
@@ -247,8 +167,7 @@
                 />
                 <label for="bar-item-1">
                   <span
-                    ><i class="fas fa-location-arrow bar-icons-1"></i>
-                    Placed</span
+                    ><i class="fas fa-download bar-icons-1"></i> Requests</span
                   ></label
                 >
 
@@ -288,8 +207,8 @@
                 </div>
               </nav>
             </div>
-            <div class="placed-tab">
-              <div class="placed-item-card">
+            <div class="request-tab">
+              <div class="request-item-card">
                 <p>1240</p>
                 <p>
                   Instahealth Thaleeptth <br />
@@ -298,9 +217,10 @@
                 <p>
                   Date <time>12/12/1221</time> <br />Time<time> 12:23:13</time>
                 </p>
-                <button type="button" class="black-btn">Cancel Order</button>
+                <button type="button" class="black-btn">Accept</button>
+                <button type="button" class="cancel-btn">Reject</button>
               </div>
-              <div class="placed-item-card">
+              <div class="request-item-card">
                 <p>1240</p>
                 <p>
                   Instahealth Thaleeptth <br />
@@ -309,7 +229,8 @@
                 <p>
                   Date <time>12/12/1221</time> <br />Time<time> 12:23:11</time>
                 </p>
-                <button type="button" class="black-btn">Cancel Order</button>
+                <button type="button" class="black-btn">Accept</button>
+                <button type="button" class="cancel-btn">Reject</button>
               </div>
             </div>
             <div class="ongoing-tab">
@@ -320,9 +241,9 @@
                   23KG
                 </p>
                 <p>
-                  Order Date <time>12/12/1221</time> <br />Order Time
-                  <time> 12:23:13</time>
+                  Date <time>12/12/1221</time> <br />Time<time> 12:23:13</time>
                 </p>
+                <button type="button" class="black-btn">Update Status</button>
               </div>
             </div>
             <div class="delivered-tab">
@@ -333,7 +254,7 @@
                   23KG
                 </p>
                 <p>
-                  Order placed <time>12/12/1221</time> <br />Delivered
+                  Order request <time>12/12/1221</time> <br />Delivered
                   on&nbsp;&nbsp;<time> 12/12/1221</time>
                 </p>
               </div>
@@ -353,11 +274,11 @@
             </button>
             <div class="recipe-item-card">
               <p>1240</p>
-              <p>Instahealth Thaleeptth</p>
+              <p>Instahealth Thaleepith</p>
               <div class="edit-section">
                 <p><i class="fal fa-edit edit-recipe-btn"></i></p>
                 <p><i class="fal fa-trash-alt"></i></p>
-                <button type="button" class="black-btn">Place Order</button>
+                <button type="button" class="black-btn">View</button>
               </div>
             </div>
 
@@ -367,7 +288,7 @@
               <div class="edit-section">
                 <p><i class="fal fa-edit edit-recipe-btn"></i></p>
                 <p><i class="fal fa-trash-alt"></i></p>
-                <button type="button" class="black-btn">Place Order</button>
+                <button type="button" class="black-btn">View</button>
               </div>
             </div>
             <div class="popup-card-bg">
@@ -513,141 +434,7 @@
           </div>
         </div>
 
-        <div class="profile-tab">
-          <div class="personal-info">
-            <h2>Personal Information</h2>
-            <div class="sub-line"></div>
-            <div class="inline-form">
-              <div class="inline-form-tab">
-                <label for="name">Name</label>
-
-                <input
-                  type="text"
-                  class="edit-input-btn-1"
-                  name="customer_name"
-                  value="Rachel Green"
-                  disabled
-                />
-
-                <p><i class="fal fa-edit edit-icons-1"></i></p>
-                <div class="edit-details-1">
-                  <button type="button" class="black-btn">Save</button>
-                  <p class="close-text">Cancel</p>
-                </div>
-              </div>
-              <div class="inline-form-tab">
-                <label for="email">Email ID</label>
-
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="edit-input-btn-2"
-                  value="rachel.9021@gmail.com"
-                  disabled
-                />
-                <p><i class="fal fa-edit edit-icons-2"></i></p>
-                <div class="edit-details-2">
-                  <button type="button" class="black-btn">Save</button>
-                  <p class="close-text">Cancel</p>
-                </div>
-              </div>
-              <div class="inline-form-tab">
-                <label for="contact">Contact no.</label>
-                <input
-                  type="number"
-                  name="contact_no"
-                  id="contact"
-                  class="edit-input-btn-3"
-                  value="9275839405"
-                  disabled
-                />
-                <p><i class="fal fa-edit edit-icons-3"></i></p>
-                <div class="edit-details-3">
-                  <button type="button" class="black-btn">Save</button>
-                  <p class="close-text">Cancel</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="company-info">
-            <h2>Company Information</h2>
-            <div class="sub-line"></div>
-            <div class="inline-form">
-              <div class="inline-form-tab">
-                <label for="company_name">Company Name</label>
-
-                <input
-                  type="text"
-                  class="edit-input-btn-4"
-                  name="company_name"
-                  value="Surekha Industries PVT ,LTD"
-                  disabled
-                />
-
-                <p><i class="fal fa-edit edit-icons-4"></i></p>
-                <div class="edit-details-4">
-                  <button type="button" class="black-btn">Save</button>
-                  <p class="close-text">Cancel</p>
-                </div>
-              </div>
-
-              <div class="inline-form-tab">
-                <label for="gst">GST Number</label>
-                <input
-                  type="text"
-                  name="gst_number"
-                  id="gst"
-                  class="edit-input-btn-5"
-                  value="07AAWFR0503R1ZK"
-                  disabled
-                />
-                <p><i class="fal fa-edit edit-icons-5"></i></p>
-                <div class="edit-details-5">
-                  <button type="button" class="black-btn">Save</button>
-                  <p class="close-text">Cancel</p>
-                </div>
-              </div>
-              <div class="inline-form-tab">
-                <label for="office_address">Office Address</label>
-
-                <textarea
-                  id="office_address"
-                  class="edit-input-btn-6"
-                  name="office_address"
-                  disabled
-                >
-11, Truck Termianl Office Bldg, Sector 19, Vashi, Navi Mumbai </textarea
-                >
-
-                <p><i class="fal fa-edit edit-icons-6"></i></p>
-                <div class="edit-details-6">
-                  <button type="button" class="black-btn">Save</button>
-                  <p class="close-text">Cancel</p>
-                </div>
-              </div>
-              <div class="inline-form-tab">
-                <label for="warehouse_address">Warehouse Address</label>
-
-                <textarea
-                  id="warehouse_address"
-                  class="edit-input-btn-7"
-                  name="warehouse_address"
-                  disabled
-                >
-11, Truck Termianl Office Bldg, Sector 19, Vashi, Navi Mumbai </textarea
-                >
-
-                <p><i class="fal fa-edit edit-icons-7"></i></p>
-                <div class="edit-details-7">
-                  <button type="button" class="black-btn">Save</button>
-                  <p class="close-text">Cancel</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="stocks-tab"></div>
       </div>
     </div>
 
@@ -665,5 +452,5 @@
       </ul>
     </div>
   </body>
-  <script src="js/customer.js"></script>
+  <script src="js/admin.js"></script>
 </html>

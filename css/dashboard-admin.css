@@ -1,0 +1,775 @@
+:root {
+  --aaheli-red: #e33442;
+  --aaheli-dark-red: #aa0c1a;
+  --aaheli-white: #ffffff;
+  --aaheli-grey: #6b6b6b;
+  --aaheli-light-grey: #dedede;
+  --aaheli-lightest-grey: #fafbfa;
+  --aaheli-black: #000000;
+  --aaheli-green: #00e733;
+  --aaheli-dark-green: #03b82a;
+}
+
+body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--aaheli-light-grey); /* color of the scroll thumb */
+  border-radius: 20px; /* creates padding around scroll thumb */
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/Poppins/Poppins-Light.ttf");
+}
+
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("../assets/Poppins/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/Open Sans/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans Semi-Bold";
+  src: url("../assets/Open Sans/OpenSans-SemiBold.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  background-image: url("/images/Background.png");
+  background-size: cover;
+  background-color: var(--aaheli-lightest-grey);
+}
+
+input:focus {
+  outline: none;
+}
+
+time {
+  text-align: end;
+  margin-left: 10px;
+  color: var(--aaheli-black);
+}
+
+.header > ul > li > a {
+  text-decoration: none;
+}
+
+.header > ul > li > a > img {
+  margin: 20px 10px 10px 26px;
+  width: 42px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.link-btn {
+  text-decoration: none;
+  color: var(--aaheli-white);
+  margin: 0;
+}
+
+.logo-title {
+  font-size: 25px;
+}
+
+.header > ul > li:nth-child(2) {
+  margin-top: 1.6%;
+  margin-left: 0.4%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main-content {
+  background-color: var(--aaheli-white);
+  min-height: 80vh;
+  min-width: 100%;
+  font-family: "Poppins Bold", sans-serif;
+}
+
+.red-btn,
+.black-btn {
+  color: var(--aaheli-white);
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.red-btn {
+  background-color: var(--aaheli-red);
+}
+
+.black-btn {
+  background-color: var(--aaheli-black);
+}
+
+.black-btn:hover,
+.red-btn:hover {
+  color: var(--aaheli-light-grey);
+}
+
+.cancel-btn {
+  font-family: "Open Sans Semi-Bold", sans-serif;
+  padding: 10px;
+  background-color: var(--aaheli-white);
+  border: none;
+  color: var(--aaheli-red);
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  color: var(--aaheli-dark-red);
+}
+
+.sub-line {
+  width: 100%;
+  height: 1px;
+  display: block;
+  background: black;
+  border-radius: 5px;
+}
+
+.customers-tab,
+.orders-tab,
+.recipe-tab,
+.stocks-tab,
+.delivered-tab,
+.ongoing-tab {
+  display: none;
+}
+
+/********************************** SLIDERS SECTION *************************************************/
+.clear {
+  clear: both;
+}
+
+.slide-toggle,
+.bar-toggle {
+  display: none;
+}
+
+.slidemenu {
+  min-width: 45%;
+  max-width: 60%;
+  margin-top: 5%;
+  overflow: hidden;
+}
+
+.slidemenu label,
+.barmenu label {
+  font-size: 10px;
+  text-align: center;
+  display: block;
+  float: left;
+  color: var(--aaheli-grey);
+  opacity: 0.8;
+}
+
+.slidemenu label {
+  width: 20%;
+}
+
+.barmenu label {
+  width: 22%;
+}
+
+.slidemenu label:hover,
+.barmenu label:hover {
+  cursor: pointer;
+  color: var(--aaheli-red);
+}
+
+.slidemenu label span,
+.barmenu label span {
+  display: block;
+  font-family: "Open Sans";
+  padding: 8px;
+  font-size: 14px;
+}
+
+.slider {
+  width: 100%;
+  height: 2px;
+  display: block;
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.slider .bar {
+  width: 20%;
+  height: 5px;
+  background: var(--aaheli-red);
+}
+
+.slidemenu label,
+.slider .bar,
+.barmenu label,
+.second-slider .second-bar {
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+}
+
+.slidemenu .slide-toggle:checked + label,
+.barmenu .bar-toggle:checked + label {
+  opacity: 1;
+  color: var(--aaheli-red);
+}
+
+.slidemenu #slide-item-1:checked ~ .slider .bar {
+  margin-left: 0;
+}
+.slidemenu #slide-item-2:checked ~ .slider .bar {
+  margin-left: 20%;
+}
+.slidemenu #slide-item-3:checked ~ .slider .bar {
+  margin-left: 40%;
+}
+.slidemenu #slide-item-4:checked ~ .slider .bar {
+  margin-left: 60%;
+}
+.slidemenu #slide-item-5:checked ~ .slider .bar {
+  margin-left: 80%;
+}
+
+.barmenu {
+  font-family: arial, sans-serif;
+  min-width: 30%;
+  max-width: 40%;
+  margin-top: 2%;
+  margin-left: 10%;
+  overflow: hidden;
+}
+
+.second-slider {
+  width: 66%;
+  height: 2px;
+  display: block;
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.second-slider .second-bar {
+  width: 32%;
+  height: 5px;
+  background: var(--aaheli-red);
+}
+
+.barmenu #bar-item-1:checked ~ .second-slider .second-bar {
+  margin-left: 0;
+}
+.barmenu #bar-item-2:checked ~ .second-slider .second-bar {
+  margin-left: 34%;
+}
+.barmenu #bar-item-3:checked ~ .second-slider .second-bar {
+  margin-left: 68%;
+}
+
+/********************************** END SLIDER SECTION ******************************************/
+
+/********************************* START DASHBOARD TAB *******************************************/
+.dashboard-tab {
+  text-align: center;
+}
+.dashboard-tab > h1 {
+  color: var(--aaheli-red);
+}
+
+.dashboard-tab > img {
+  margin-top: 10%;
+  height: 80px;
+}
+
+.dashboard-tab > h1 {
+  font-family: "Poppins Bold";
+  font-size: 180%;
+  animation-duration: 4s;
+}
+/************************************* END DASHBOARD TAB ********************************************/
+
+/************************************ START CUSTOMERS TAB *****************************************/
+.customer-card {
+  display: flex;
+  width: 500px;
+  padding: 15px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin-top: 17px;
+  margin-left: 498px;
+  margin-bottom: 10px;
+}
+
+.customer-list-tab p {
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+.customer-card > p:first-child {
+  margin-top: 16px;
+  color: var(--aaheli-red);
+  font-weight: bold;
+}
+
+.customer-details > p:nth-child(1) {
+  text-align: start;
+  min-width: 200px;
+  max-width: 250px;
+}
+.customer-details > p:nth-child(2) {
+  text-align: start;
+  font-size: 12px;
+  width: 250px;
+}
+
+.customer-card .edit-section > p:first-child {
+  margin-top: 16px;
+  color: var(--aaheli-red);
+  cursor: pointer;
+}
+
+.customer-card .edit-section > p:first-child:hover {
+  color: var(--aaheli-dark-red);
+}
+
+.customer-card .edit-section {
+  display: flex;
+  margin-left: 80px;
+}
+
+.customer-card .edit-section > button {
+  margin-top: 8px;
+  height: 40px;
+  margin-left: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+/*************************************** END CUSTOMERS TAB *******************************************/
+
+/**************************************** START ORDERS TAB *******************************************/
+.orders-tab {
+  text-align: center;
+}
+
+/** FILTERS BAR**/
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.filter-navbar > ul > li:first-child {
+  margin-left: 30%;
+}
+
+.filter-navbar {
+  min-width: 100%;
+  background: none;
+  text-align: center;
+}
+
+.filter-navbar > ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+.filter-navbar > ul > li {
+  font-family: "Open Sans";
+  float: left;
+  margin-top: 5%;
+  margin-left: 2%;
+}
+
+/**REQUEST CARD ***/
+.request-item-card {
+  display: flex;
+  width: 600px;
+  padding: 15px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin-top: 17px;
+  margin-left: 450px;
+  margin-bottom: 10px;
+}
+
+.request-item-card > p:first-child {
+  color: var(--aaheli-red);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.request-item-card > p:nth-child(2) {
+  margin-left: 20px;
+  min-width: 250px;
+  max-width: 200px;
+  text-align: start;
+}
+
+.request-item-card > p:nth-child(3) {
+  text-align: start;
+  font-size: 13px;
+  color: var(--aaheli-red);
+  min-width: 140px;
+  max-width: 140px;
+  margin-top: 5px;
+}
+
+.request-item-card .black-btn {
+  margin-top: 5px;
+  margin-left: 29px;
+  height: 40px;
+}
+
+/**ONGOING CARD ***/
+.ongoing-item-card {
+  display: flex;
+  width: 600px;
+  padding: 15px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin-top: 17px;
+  margin-left: 450px;
+  margin-bottom: 10px;
+}
+
+.ongoing-item-card > p:first-child {
+  color: var(--aaheli-red);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.ongoing-item-card > p:nth-child(2) {
+  margin-left: 20px;
+  min-width: 250px;
+  max-width: 200px;
+  text-align: start;
+}
+
+.ongoing-item-card > p:nth-child(3) {
+  text-align: start;
+  margin-left: 15px;
+  font-size: 13px;
+  color: var(--aaheli-red);
+  min-width: 140px;
+  max-width: 140px;
+  margin-top: 5px;
+}
+
+.ongoing-item-card > button {
+  margin-top: 5px;
+  margin-left: 20px;
+  height: 40px;
+}
+
+/** DELIVERED CARD **/
+.delivered-item-card {
+  display: flex;
+  width: 600px;
+  padding: 15px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin-top: 17px;
+  margin-left: 450px;
+  margin-bottom: 10px;
+}
+
+.delivered-item-card > p:first-child {
+  color: var(--aaheli-red);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.delivered-item-card > p:nth-child(2) {
+  margin-left: 20px;
+  min-width: 250px;
+  max-width: 200px;
+  text-align: start;
+}
+
+.delivered-item-card > p:nth-child(3) {
+  text-align: start;
+  margin-left: 120px;
+  font-size: 13px;
+  color: var(--aaheli-red);
+  min-width: 150px;
+  max-width: 170px;
+  margin-top: 5px;
+}
+/**************************************END ORDERS TAB**********************************************/
+
+/*************************************** START RECIPE TAB ******************************************/
+.recipe-tab {
+  text-align: center;
+}
+
+.recipes-list-tab > button {
+  font-size: 12px;
+  margin-left: 472px;
+  margin-top: 12px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.recipes-list-tab p {
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+/*** RECIPES CARD***/
+.recipe-item-card {
+  display: flex;
+  width: 500px;
+  padding: 15px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin-top: 17px;
+  margin-left: 498px;
+  margin-bottom: 10px;
+}
+
+.recipe-item-card > p:first-child {
+  color: var(--aaheli-red);
+  font-weight: bold;
+}
+
+.recipe-item-card > p:nth-child(2) {
+  text-align: left;
+  max-width: 185px;
+  min-width: 185px;
+}
+
+.recipe-item-card .edit-section > p:nth-child(1) {
+  color: var(--aaheli-green);
+  cursor: pointer;
+}
+
+.recipe-item-card .edit-section > p:nth-child(1):hover {
+  color: var(--aaheli-dark-green);
+}
+
+.recipe-item-card .edit-section > p:nth-child(2) {
+  color: var(--aaheli-red);
+  cursor: pointer;
+}
+
+.recipe-item-card .edit-section > p:nth-child(2):hover {
+  color: var(--aaheli-dark-red);
+}
+
+.recipe-item-card .edit-section {
+  display: flex;
+  margin-left: 120px;
+}
+
+.recipe-item-card .edit-section > button {
+  margin-left: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/***** POPUP CARD ******/
+.popup-card-bg,
+.edit-popup-card-bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* display: flex; */
+  background-color: rgba(112, 128, 175, 0.2);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.popup-card,
+.edit-popup-card {
+  display: none;
+  position: relative;
+  padding: 15px;
+  width: 500px;
+  height: 340px;
+  border-radius: 8px;
+  background-color: #ffff;
+  box-shadow: rgba(112, 128, 175, 0.2) 0px 16px 24px 0px;
+}
+
+.popup-card-middle,
+.edit-popup-card-middle {
+  overflow: auto;
+  height: 190px;
+}
+
+.popup-card h2,
+.edit-popup-card h2 {
+  font-family: "Poppins Bold", sans-serif;
+  float: left;
+  margin-left: 12px;
+}
+
+.popup-card .items,
+.edit-popup-card .items {
+  display: flex;
+  justify-content: center;
+}
+
+/**ITEMS*/
+.items > input,
+#recipe_name {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.items > input[type="number"] {
+  width: 40px;
+  padding: 5px;
+}
+
+.items {
+  margin-top: 10px;
+}
+
+.items .fa-percent {
+  margin-top: 7px;
+}
+
+.items > label {
+  margin-top: 3px;
+}
+
+.popup-footer,
+.edit-popup-footer {
+  margin-top: 8px;
+}
+
+#add_item,
+#edit_add_item {
+  float: left;
+  margin-left: 40px;
+}
+
+#cancel_btn,
+#create_recipe,
+#edit_recipe_btn {
+  float: right;
+}
+
+#create_recipe,
+#edit_recipe_btn {
+  margin-right: 40px;
+}
+
+.popup-card form,
+.edit-popup-card form {
+  margin-top: 20px;
+}
+
+.popup-card .fa-times,
+.edit-popup-card .fa-times {
+  float: right;
+  color: var(--aaheli-red);
+  font-size: 22px;
+  margin-right: 18px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.popup-card .sub-line,
+.edit-popup-card .sub-line {
+  margin-top: 38px;
+}
+
+.no-orders-tab p,
+.no-recipes-tab p {
+  color: var(--aaheli-red);
+  margin-right: 10px;
+}
+
+.no-orders-tab,
+.no-recipes-tab {
+  margin-top: 140px;
+}
+
+.no-orders-tab h1,
+.no-recipes-tab h1 {
+  font-family: "Poppins Bold";
+  font-size: 30px;
+}
+
+.no-orders-tab a,
+.no-recipes-tab a {
+  font-size: 15px;
+  color: var(--aaheli-black);
+}
+/***************************************** END RECIPE TAB ********************************************/
+
+/***************************************** START FOOTER  ***************************************/
+.header > ul,
+.footer > ul {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: var(--aaheli-red);
+}
+
+.footer > ul > li,
+.header > ul > li {
+  float: left;
+}
+
+.footer {
+  background-color: var(--aaheli-red);
+  padding: 2%;
+  flex-shrink: 0;
+}
+
+#logout-btn {
+  float: right;
+  padding: 10px;
+  margin-right: 3%;
+  margin-top: 1%;
+}
+
+#about-us,
+#contact-us {
+  float: right;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+#contact-us {
+  margin-right: 4%;
+}
+#copyright {
+  padding: 10px;
+}
+/**************************************** END FOOTER **************************************************/

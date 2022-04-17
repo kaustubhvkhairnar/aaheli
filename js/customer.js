@@ -207,24 +207,31 @@ $(document).ready(function () {
     $(".popup-card").show();
   });
 
-  // display create-recipe popup
+  // display add-recipe popup
   $(".add-recipe-btn").click(function () {
     $(".popup-card-bg").css("display", "flex");
     $(".popup-card").show();
   });
 
+  // display edit-recipe popup
+  $(".edit-recipe-btn").click(function () {
+    $(".edit-popup-card-bg").css("display", "flex");
+    $(".edit-popup-card").show();
+  });
   // close create recipe popup using close icon
   $(".cancel-btn").click(function () {
-    // $(".popup-card").animate({ opacity: 0 }, "slow");
-    // $(".popup-card-bg").animate({ opacity: 0 }, "slow");
     $(".popup-card-bg").hide();
+    $(".edit-popup-card-bg").hide();
   });
 
   // close create recipe popup using cancel button
   $(".popup-card > .fa-times").click(function () {
-    // $(".popup-card").animate({ opacity: 0 }, "slow");
-    // $(".popup-card-bg").animate({ opacity: 0 }, "slow");
     $(".popup-card-bg").hide();
+  });
+
+  // close create recipe popup using cancel button
+  $(".edit-popup-card > .fa-times").click(function () {
+    $(".edit-popup-card-bg").hide();
   });
 
   $(".add-item-btn").click(function () {
@@ -246,19 +253,27 @@ $(document).ready(function () {
       .append($label1, $input1, $label2, $input2, $icon)
       .appendTo(".popup-card-middle");
   });
+
+  $(".edit-add-item-btn").click(function () {
+    var $items = $("<div/>", { class: "items" }),
+      $label1 = $("<label/>", { for: "items_names", text: "Item Name" }),
+      $input1 = $("<input/>", {
+        type: "text",
+        id: "item_names",
+        name: "item_names[]",
+      }),
+      $label2 = $("<label/>", { for: "items_perc", text: "Percentage" }),
+      $input2 = $("<input/>", {
+        type: "number",
+        id: "item_perc",
+        name: "item_perc[]",
+      }),
+      $icon = $("<i/>", { class: "fal fa-percent" });
+    $items
+      .append($label1, $input1, $label2, $input2, $icon)
+      .appendTo(".edit-popup-card-middle");
+  });
 });
-
-{
-  /* <div class="items">
-  <label for="item_names[]">Item Name</label>
-  <input type="text" id="item_names[]" name="item_names[]" />
-  <label for="item_perc[]">Percentage</label>
-  <input type="number" id="item_perc[]" name="item_perc[]" />
-  <i class="fal fa-percent"></i>
-</div>; */
-}
-
-function createItems() {}
 
 // to hide the tabs
 function hideTabs() {

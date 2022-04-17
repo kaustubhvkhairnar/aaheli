@@ -219,7 +219,8 @@ body {
 * create recipe Pop-up
 */
 
-.popup-card-bg {
+.popup-card-bg,
+.edit-popup-card-bg {
   display: none;
   position: fixed;
   top: 0;
@@ -232,7 +233,8 @@ body {
   height: 100vh;
 }
 
-.popup-card {
+.popup-card,
+.edit-popup-card {
   display: none;
   position: relative;
   padding: 15px;
@@ -243,18 +245,21 @@ body {
   box-shadow: rgba(112, 128, 175, 0.2) 0px 16px 24px 0px;
 }
 
-.popup-card-middle {
+.popup-card-middle,
+.edit-popup-card-middle {
   overflow: auto;
   height: 190px;
 }
 
-.popup-card h2 {
+.popup-card h2,
+.edit-popup-card h2 {
   font-family: "Poppins Bold", sans-serif;
   float: left;
   margin-left: 12px;
 }
 
-.popup-card .items {
+.popup-card .items,
+.edit-popup-card .items {
   display: flex;
   justify-content: center;
 }
@@ -285,29 +290,35 @@ body {
   margin-top: 3px;
 }
 
-.popup-footer {
-  margin-top: 10px;
+.popup-footer,
+.edit-popup-footer {
+  margin-top: 8px;
 }
 
-#add_item {
+#add_item,
+#edit_add_item {
   float: left;
   margin-left: 40px;
 }
 
 #cancel_btn,
-#create_recipe {
+#create_recipe,
+#edit_recipe_btn {
   float: right;
 }
 
-#create_recipe {
+#create_recipe,
+#edit_recipe_btn {
   margin-right: 40px;
 }
 
-.popup-card form {
+.popup-card form,
+.edit-popup-card form {
   margin-top: 20px;
 }
 
-.popup-card .fa-times {
+.popup-card .fa-times,
+.edit-popup-card .fa-times {
   float: right;
   color: var(--aaheli-red);
   font-size: 22px;
@@ -316,7 +327,8 @@ body {
   cursor: pointer;
 }
 
-.popup-card .sub-line {
+.popup-card .sub-line,
+.edit-popup-card .sub-line {
   margin-top: 38px;
 }
 
@@ -427,6 +439,7 @@ input:focus {
 }
 
 .recipe-item-card > p:nth-child(2) {
+  text-align: left;
   max-width: 185px;
   min-width: 185px;
 }
