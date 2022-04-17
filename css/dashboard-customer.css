@@ -197,7 +197,7 @@ body {
 }
 
 .dropdown-content button:hover {
-  background-color: #f1f1f1;
+  background-color: #fffcfc;
 }
 
 .dropdown:hover .dropbtn {
@@ -237,10 +237,15 @@ body {
   position: relative;
   padding: 15px;
   width: 500px;
-  min-height: 300px;
+  height: 340px;
   border-radius: 8px;
   background-color: #ffff;
   box-shadow: rgba(112, 128, 175, 0.2) 0px 16px 24px 0px;
+}
+
+.popup-card-middle {
+  overflow: auto;
+  height: 190px;
 }
 
 .popup-card h2 {
@@ -281,7 +286,7 @@ body {
 }
 
 .popup-footer {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #add_item {
@@ -388,6 +393,10 @@ input:focus {
   color: var(--aaheli-light-grey);
 }
 
+.recipe-tab {
+  text-align: center;
+}
+
 .recipe-item-card {
   display: flex;
   width: 500px;
@@ -402,7 +411,7 @@ input:focus {
 
 .recipes-list-tab > button {
   font-size: 12px;
-  margin-left: 1000px;
+  margin-left: 472px;
   margin-top: 12px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
@@ -640,7 +649,7 @@ time {
 } */
 
 .inline-form-tab .fa-edit {
-  display: none;
+  /* display: none; */
   color: var(--aaheli-green);
   margin-top: 17px;
   cursor: pointer;
@@ -650,7 +659,6 @@ time {
   display: grid;
   row-gap: 10px;
   grid-template-columns: 200px 500px;
-  /* grid-auto-rows: minmax(150px, auto); */
   justify-content: center;
   grid-template-rows: 2fr 4fr;
 }
