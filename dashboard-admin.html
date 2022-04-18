@@ -281,7 +281,9 @@
               <div class="edit-section">
                 <p><i class="fal fa-edit edit-recipe-btn"></i></p>
                 <p><i class="fal fa-trash-alt"></i></p>
-                <button type="button" class="black-btn">View</button>
+                <button type="button" class="black-btn view-popup-btn">
+                  View
+                </button>
               </div>
             </div>
 
@@ -291,7 +293,9 @@
               <div class="edit-section">
                 <p><i class="fal fa-edit edit-recipe-btn"></i></p>
                 <p><i class="fal fa-trash-alt"></i></p>
-                <button type="button" class="black-btn">View</button>
+                <button type="button" class="black-btn view-popup-btn">
+                  View
+                </button>
               </div>
             </div>
 
@@ -365,6 +369,7 @@
                 </form>
               </div>
             </div>
+
             <div class="edit-popup-card-bg">
               <div class="edit-popup-card">
                 <h2>Edit Recipe</h2>
@@ -435,6 +440,50 @@
                 </form>
               </div>
             </div>
+
+            <div class="view-popup-card-bg">
+              <div class="view-popup-card">
+                <h2>Instahealth Thaleepith</h2>
+                <i class="fal fa-times"></i>
+
+                <div class="sub-line"></div>
+
+                <div class="view-popup-card-middle">
+                  <div class="view-popup-title">
+                    <h3>Item Name</h3>
+                    <h3>Percentage</h3>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Jeera Powder</h4>
+                    <h4>23.3 <i class="fal fa-percent"></i></h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Usal</h4>
+                    <h4>23.3 <i class="fal fa-percent"></i></h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Daal</h4>
+                    <h4>03.3 <i class="fal fa-percent"></i></h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Masoor</h4>
+                    <h4>21.2 <i class="fal fa-percent"></i></h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Udid Masoor</h4>
+                    <h4>40.0 <i class="fal fa-percent"></i></h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Shengdana Oil</h4>
+                    <h4>23.3 <i class="fal fa-percent"></i></h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Cow's Ghee</h4>
+                    <h4>23.3 <i class="fal fa-percent"></i></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -458,9 +507,12 @@
               <div class="edit-section">
                 <p><i class="fal fa-edit edit-recipe-btn"></i></p>
                 <p><i class="fal fa-trash-alt"></i></p>
-                <button type="button" class="black-btn">View</button>
+                <button type="button" class="black-btn view-popup-btn">
+                  View
+                </button>
               </div>
             </div>
+
             <div class="stocks-card">
               <p>1242</p>
               <div class="stocks-details">
@@ -471,7 +523,133 @@
               <div class="edit-section">
                 <p><i class="fal fa-edit edit-recipe-btn"></i></p>
                 <p><i class="fal fa-trash-alt"></i></p>
-                <button type="button" class="black-btn">View</button>
+                <button type="button" class="black-btn view-popup-btn">
+                  View
+                </button>
+              </div>
+            </div>
+
+            <div class="edit-popup-card-bg">
+              <div class="edit-popup-card">
+                <h2>Edit Recipe</h2>
+
+                <i class="fal fa-times"></i>
+                <div class="sub-line"></div>
+
+                <form action="" method="post">
+                  <label for="recipe_name">Recipe Name</label>
+                  <input type="text" id="recipe_name" name="recipe_name" />
+                  <div class="edit-popup-card-middle">
+                    <div class="items">
+                      <label for="item_names">Item Name</label>
+                      <input type="text" id="item_names" name="item_names[]" />
+                      <label for="item_perc">Percentage</label>
+                      <input type="number" id="item_perc" name="item_perc[]" />
+                      <i class="fal fa-percent"></i>
+                    </div>
+
+                    <div class="items">
+                      <label for="item_names">Item Name</label>
+                      <input type="text" id="item_names" name="item_names[]" />
+                      <label for="item_perc">Percentage</label>
+                      <input type="number" id="item_perc" name="item_perc[]" />
+                      <i class="fal fa-percent"></i>
+                    </div>
+
+                    <div class="items">
+                      <label for="item_names">Item Name</label>
+                      <input type="text" id="item_names" name="item_names[]" />
+                      <label for="item_perc">Percentage</label>
+                      <input type="number" id="item_perc" name="item_perc[]" />
+                      <i class="fal fa-percent"></i>
+                    </div>
+
+                    <div class="items">
+                      <label for="item_names">Item Name</label>
+                      <input type="text" id="item_names" name="item_names[]" />
+                      <label for="item_perc">Percentage</label>
+                      <input type="number" id="item_perc" name="item_perc[]" />
+                      <i class="fal fa-percent"></i>
+                    </div>
+                  </div>
+
+                  <div class="edit-popup-footer">
+                    <input
+                      type="button"
+                      class="black-btn edit-add-item-btn"
+                      id="edit_add_item"
+                      name="edit_add_item"
+                      value="Add item"
+                    />
+                    <input
+                      type="submit"
+                      class="black-btn"
+                      id="edit_recipe_btn"
+                      name="edit_recipe"
+                      value="Save"
+                    />
+                    <input
+                      type="button"
+                      class="cancel-btn"
+                      id="cancel_btn"
+                      name="cancel_btn"
+                      value="Cancel"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="view-popup-card-bg">
+              <div class="view-popup-card">
+                <h2>Instahealth Thaleepith</h2>
+                <h2>45 KG</h2>
+                <i class="fal fa-times"></i>
+
+                <div class="sub-line"></div>
+
+                <div class="view-popup-card-middle">
+                  <div class="view-popup-title">
+                    <h3>Supplier</h3>
+                    <h3>Quantity</h3>
+                    <h3>Purchase Date</h3>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Narayani Food Supplier</h4>
+                    <h4>23.3 KG</h4>
+                    <h4>21/03/2022</h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Regional Retailers</h4>
+                    <h4>23.3 KG</h4>
+                    <h4>21/03/2022</h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Finest Suppliers</h4>
+                    <h4>03.3 KG</h4>
+                    <h4>21/03/2022</h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Masoor</h4>
+                    <h4>21.2 KG</h4>
+                    <h4>21/03/2022</h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Udid Masoor</h4>
+                    <h4>40.0 KG</h4>
+                    <h4>21/03/2022</h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Shengdana Oil</h4>
+                    <h4>23.3 KG</h4>
+                    <h4>21/03/2022</h4>
+                  </div>
+                  <div class="view-popup-items">
+                    <h4>Cow's Ghee</h4>
+                    <h4>23.3 KG</h4>
+                    <h4>21/03/2022</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

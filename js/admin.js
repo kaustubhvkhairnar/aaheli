@@ -89,19 +89,29 @@ $(document).ready(function () {
   $(".create-btn").click(function () {
     $(".popup-card-bg").css("display", "flex");
     $(".popup-card").show();
+     $(".extra").remove();
   });
 
   // display add-recipe popup
   $(".add-recipe-btn").click(function () {
     $(".popup-card-bg").css("display", "flex");
     $(".popup-card").show();
+    $(".extra").remove();
   });
 
   // display edit-recipe popup
   $(".edit-recipe-btn").click(function () {
     $(".edit-popup-card-bg").css("display", "flex");
     $(".edit-popup-card").show();
+    $(".extra").remove();
   });
+
+  // display view details popup
+  $(".view-popup-btn").click(function () {
+    $(".view-popup-card-bg").css("display", "flex");
+    $(".view-popup-card").show();
+  });
+
   // close create recipe popup using close icon
   $(".cancel-btn").click(function () {
     $(".popup-card-bg").hide();
@@ -118,9 +128,13 @@ $(document).ready(function () {
     $(".edit-popup-card-bg").hide();
   });
 
+  // close create recipe popup using cancel button
+  $(".view-popup-card > .fa-times").click(function () {
+    $(".view-popup-card-bg").hide();
+  });
 
   $(".add-item-btn").click(function () {
-    var $items = $("<div/>", { class: "items" }),
+    var $items = $("<div/>", { class: "items extra" }),
       $label1 = $("<label/>", { for: "items_names", text: "Item Name" }),
       $input1 = $("<input/>", {
         type: "text",
@@ -140,7 +154,7 @@ $(document).ready(function () {
   });
 
   $(".edit-add-item-btn").click(function () {
-    var $items = $("<div/>", { class: "items" }),
+    var $items = $("<div/>", { class: "items extra" }),
       $label1 = $("<label/>", { for: "items_names", text: "Item Name" }),
       $input1 = $("<input/>", {
         type: "text",

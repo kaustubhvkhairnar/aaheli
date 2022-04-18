@@ -10,10 +10,10 @@
   --aaheli-dark-green: #03b82a;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 12px; /* width of the entire scrollbar */
 }
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: var(--aaheli-light-grey); /* color of the scroll thumb */
   border-radius: 20px; /* creates padding around scroll thumb */
 }
@@ -601,7 +601,8 @@ time {
 
 /***** POPUP CARD ******/
 .popup-card-bg,
-.edit-popup-card-bg {
+.edit-popup-card-bg,
+.view-popup-card-bg {
   display: none;
   position: fixed;
   top: 0;
@@ -614,15 +615,32 @@ time {
 }
 
 .popup-card,
-.edit-popup-card {
+.edit-popup-card,
+.view-popup-card {
   display: none;
   position: relative;
   padding: 15px;
-  width: 500px;
-  height: 340px;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: #ffff;
   box-shadow: rgba(112, 128, 175, 0.2) 0px 16px 24px 0px;
+}
+
+.recipe-tab .view-popup-card {
+  width: 380px;
+  min-height: 200px;
+  max-height: 600px;
+}
+
+.stocks-tab .view-popup-card {
+  width: 800px;
+  min-height: 200px;
+  max-height: 600px;
+}
+
+.popup-card,
+.edit-popup-card {
+  width: 500px;
+  height: 340px;
 }
 
 .popup-card-middle,
@@ -631,8 +649,67 @@ time {
   height: 190px;
 }
 
+.view-popup-card-middle {
+  margin-top: 10px;
+  overflow: auto;
+  max-height: 550px;
+}
+
+.view-popup-card-middle h3 {
+  font-family: "Poppins Bold";
+}
+
+.view-popup-title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stocks-tab .view-popup-title h3:first-child {
+  flex-basis: 180px;
+}
+
+.recipe-tab .view-popup-items {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.stocks-tab .view-popup-items {
+  display: flex;
+  margin-top: 8px;
+}
+
+.recipe-tab .view-popup-items h4:first-child {
+  margin-left: 40px;
+}
+
+.recipe-tab .view-popup-items h4:last-child {
+  margin-right: 80px;
+}
+
+.stocks-tab .view-popup-items h4:first-child {
+  text-align: left;
+  margin-left: 15px;
+  flex-basis: 400px;
+  flex-grow: 900px;
+}
+
+.stocks-tab .view-popup-items h4:nth-child(2) {
+  flex-basis: 80px;
+}
+
+.stocks-tab .view-popup-items h4:last-child {
+  flex-basis: 200px;
+}
+
+.view-popup-card-middle .fa-percent {
+  font-size: 13px;
+  font-weight: bold;
+}
+
 .popup-card h2,
-.edit-popup-card h2 {
+.edit-popup-card h2,
+.view-popup-card h2 {
   font-family: "Poppins Bold", sans-serif;
   float: left;
   margin-left: 12px;
@@ -699,7 +776,8 @@ time {
 }
 
 .popup-card .fa-times,
-.edit-popup-card .fa-times {
+.edit-popup-card .fa-times,
+.view-popup-card .fa-times {
   float: right;
   color: var(--aaheli-red);
   font-size: 22px;
@@ -709,8 +787,10 @@ time {
 }
 
 .popup-card .sub-line,
-.edit-popup-card .sub-line {
+.edit-popup-card .sub-line,
+.view-popup-card .sub-line {
   margin-top: 38px;
+  height: 0.5px;
 }
 
 .no-orders-tab p,
@@ -785,11 +865,13 @@ time {
 .stocks-details {
   margin-left: 10px;
 }
+
 .stocks-details > p:nth-child(1) {
   text-align: start;
   min-width: 200px;
   max-width: 250px;
 }
+
 .stocks-details > p:nth-child(2) {
   font-family: "Poppins Bold";
   font-size: 15px;
