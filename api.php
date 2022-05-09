@@ -22,14 +22,37 @@
 	{
 		//global variable of database connection object
 		global $conn;
-		$posts=array();
+		$resultSet=array();
 
-		//to get record of replied posts
-		if(isset($_GET['reply_to']))
+		// For admin : To get all the customers in database
+		if(isset($_GET['customers']) && isset($_GET['admin'])){
+			$sql="SELECT * FROM `customer`";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) 
+            {
+                while($row = mysqli_fetch_assoc($result)) 
+                {
+                    $key=$row['customer_id'];
+                
+                    $resultSet[$key]=array(
+                        'customer_id'=>$row['customer_id'],
+                        'name'=>$row['name'],
+						'phone'=>$row['phone'],
+						'email'=>$row['email'],
+						'company_name'=>$row['company_name'],
+						'office_address'=>$row['office_address'],
+						'godown_address'=>$row['godown_address'],
+						'gst_no'=>$row['gst_no']
+                    );	
+                }
+                return $resultSet;
+            }
+		}
+		// For customer : To get all the orders according to status
+		elseif (isset($_GET['orders']) && isset($_GET['status']) && isset($GET['customer_id'])) 
 		{
-			$id=$_GET['reply_to'];
-
-			$sql="SELECT * FROM CarWashPost where reply_to=".$id;
+			$sql="SELECT * FROM `orders` WHERE order_status = '".$_GET['status']."' AND customer_id = '".$GET['customer_id']."'";
             $result = mysqli_query($conn, $sql);
 
             // fetch from result variable
@@ -37,27 +60,96 @@
             {
                 while($row = mysqli_fetch_assoc($result)) 
                 {
-                    $key="post".$row['id'];
-                    $repto=-1;
-                    if($row['reply_to']==null){
-                        $repto="not";
-                    }else{
-                        $repto=$row['reply_to'];
-                    }
-                    $posts[$key]=array(
-                        'id'=>$row['id'],
-                        'name'=>$row['name'],
-                        'text'=>$row['text'],
-                        'post_date'=>$row['post_date'],
-                        'likes'=>$row['likes'],
-                        'reply_to'=>$repto,
-                        'link'=> array("self"=>"/api/?id=".$row['id']."","replies"=>"/api/?reply_to=".$row['id']."")
+                    $key=$row['order_id'];
+					
+                    $resultSet[$key]=array(
+                        'order_id'=>$row['order_id'],
+                        'quantity'=>$row['quantity'],
+						'date'=>$row['date'],
+						'delivery_date'=>$row['delivery_date'],
+						'manufacture_date'=>$row['manufacture_date'],
+						'status' => $row['status'],
+						'recipe_id'=>$row['recipe_id'],
+						'customer_id '=>$row['customer_id ']
                     );	
                 }
-                return $posts;
-            }	
+                return $resultSet;
+            }
 		}
-		
+		// For admin : To get all the orders according to status
+		elseif (isset($_GET['orders']) && isset($_GET['status']) && isset($_GET['admin'])) 
+		{
+			$sql="SELECT * FROM `orders` WHERE order_status = '".$_GET['status']."'";
+            $result = mysqli_query($conn, $sql);
+
+            // fetch from result variable
+            if (mysqli_num_rows($result) > 0) 
+            {
+                while($row = mysqli_fetch_assoc($result)) 
+                {
+                    $key=$row['order_id'];
+					
+                    $resultSet[$key]=array(
+                        'order_id'=>$row['order_id'],
+                        'quantity'=>$row['quantity'],
+						'order_date'=>$row['order_date'],
+						'delivery_date'=>$row['delivery_date'],
+						'manufacture_date'=>$row['manufacture_date'],
+						'status' => $row['status'],
+						'recipe_id'=>$row['recipe_id'],
+						'customer_id '=>$row['customer_id ']
+                    );	
+                }
+                return $resultSet;
+            }
+		}
+		// For customer : To get all the recipes 
+		elseif (isset($_GET['recipes']) && isset($_GET['customer_id'])) 
+		{
+			$sql="SELECT * FROM `recipe` WHERE customer_id = '".$_GET['customer_id']."'";
+            $result = mysqli_query($conn, $sql);
+
+            // fetch from result variable
+            if (mysqli_num_rows($result) > 0) 
+            {
+                while($row = mysqli_fetch_assoc($result)) 
+                {
+                    $key=$row['recipe_id'];
+					
+                    $resultSet[$key]=array(
+                        'recipe_id'=>$row['recipe_id'],
+                        'name'=>$row['name'],
+						'quantity'=>$row['quantity'],
+						'customer_id '=>$row['customer_id ']
+                    );	
+                }
+                return $resultSet;
+            }
+		}
+		// For customer : To get all the recipe details
+		elseif (isset($_GET['recipe_id']) && isset($_GET['customer_id'])) 
+		{
+			// SELECT `item`.`item_id`,`item`.`name`,`recipe_items`.`quantity` FROM `item`,`recipe_items` WHERE `item`.`item_id` IN (SELECT item_id FROM `recipe_items` WHERE recipe_id = 1) GROUP BY 'item.item_id';
+			$sql="SELECT * FROM `recipe_items` WHERE recipe_id= AND AND customer_id = '".$_GET['customer_id']."'";
+            $result = mysqli_query($conn, $sql);
+
+            // fetch from result variable
+            if (mysqli_num_rows($result) > 0) 
+            {
+                while($row = mysqli_fetch_assoc($result)) 
+                {
+                    $key=$row['recipe_id'];
+					
+                    $resultSet[$key]=array(
+                        'recipe_id'=>$row['recipe_id'],
+                        'name'=>$row['name'],
+						'quantity'=>$row['quantity'],
+						'customer_id '=>$row['customer_id ']
+                    );	
+                }
+                return $resultSet;
+            }
+		}
 	}
 	
 	// post api request based on query parameters
@@ -68,16 +160,27 @@
 		
 		if($_POST)
 		{
-			if(isset($_POST['recipe_name']) && isset($_POST['recipe_quantity']) )
+			// New order placed
+			if(isset($_POST['recipe_selection']) && isset($_POST['recipe_quantity']) )
 			{
 				
-				$sql="insert into `recipes` (recipe_name,recipe_quantity,customer_id) values ('".$_POST['recipe_name']."',". $_POST['recipe_quantity'] .",".$_POST['customer_id'].")";
+				$sql="insert into `orders` (quantity,recipe_id,customer_id) values ('".$_POST['recipe_quantity']."',". $_POST['recipe_selection'] .",".$_POST['customer_id'].")";
 				
-				// insert query for new record
 				$query= mysqli_query($conn, $sql);
 				if($query == true)
 				{
-					$response=array("message"=>"Recipe created successfuly !");					
+					$response=array("message"=>"Order Placed !");					
+				}
+		
+				return $response;
+			}
+			elseif (isset($_POST['recipe_name']) && isset($_POST['item_names'])) {
+				$sql="insert into `recipe` (recipe_name,recipe_id,customer_id) values ('".$_POST['recipe_quantity']."',". $_POST['recipe_selection'] .",".$_POST['customer_id'].")";
+				
+				$query= mysqli_query($conn, $sql);
+				if($query == true)
+				{
+					$response=array("message"=>"Order Placed !");					
 				}
 		
 				return $response;

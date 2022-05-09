@@ -17,6 +17,7 @@ $(document).ready(function () {
       hideTabs();
       $("#title").text("New Order");
       $(".new-order-tab").slideDown();
+      
       $(".dropdown").hover(
         function () {
           $(".dropdown-content").slideDown();
@@ -99,7 +100,7 @@ $(document).ready(function () {
 
   $(".dropdown-content > :button").click(function (e) {
     $(".dropbtn").text($(this).text());
-    $("#recipe_selection").text($(this).text());
+    $("#recipe_selection").text($(this).attr('id'));
     $(".dropdown-content").slideUp();
   });
 

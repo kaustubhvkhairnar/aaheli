@@ -437,17 +437,12 @@ time {
 
 .request-item-card > p:nth-child(3) {
   text-align: start;
+  margin-left: 177px;
   font-size: 13px;
   color: var(--aaheli-red);
   min-width: 140px;
   max-width: 140px;
   margin-top: 5px;
-}
-
-.request-item-card .black-btn {
-  margin-top: 5px;
-  margin-left: 29px;
-  height: 40px;
 }
 
 /**ONGOING CARD ***/
@@ -520,13 +515,20 @@ time {
 
 .delivered-item-card > p:nth-child(3) {
   text-align: start;
-  margin-left: 120px;
+  /* margin-left: 20px; */
   font-size: 13px;
   color: var(--aaheli-red);
   min-width: 150px;
   max-width: 170px;
   margin-top: 5px;
 }
+
+.delivered-item-card .black-btn {
+  margin-top: 5px;
+  margin-left: 29px;
+  height: 40px;
+}
+
 /**************************************END ORDERS TAB**********************************************/
 
 /*************************************** START RECIPE TAB ******************************************/
