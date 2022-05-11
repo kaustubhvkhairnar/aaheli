@@ -51,13 +51,24 @@ $(document).ready(function () {
       $(".icons-5").removeClass("fas");
       $(".icons-5").addClass("fal");
     }
+
+    if ($("#slide-item-6").is(":checked")) {
+      $(".icons-6").removeClass("fal");
+      $(".icons-6").addClass("fas");
+      hideTabs();
+      $("#title").text("Suppliers");
+      $(".suppliers-tab").slideDown();
+    } else {
+      $(".icons-6").removeClass("fas");
+      $(".icons-6").addClass("fal");
+    }
     /*** Filters slider */
     $(".bar-toggle").click(function () {
       if ($("#bar-item-1").is(":checked")) {
         $(".bar-icons-1").removeClass("fal");
         $(".bar-icons-1").addClass("fas");
         hideFilterTabs();
-        $(".requests-tab").slideDown();
+        $(".pending-tab").slideDown();
       } else {
         $(".bar-icons-1").removeClass("fas");
         $(".bar-icons-1").addClass("fal");
@@ -89,7 +100,7 @@ $(document).ready(function () {
   $(".create-btn").click(function () {
     $(".popup-card-bg").css("display", "flex");
     $(".popup-card").show();
-     $(".extra").remove();
+    $(".extra").remove();
   });
 
   // display add-recipe popup
@@ -106,34 +117,58 @@ $(document).ready(function () {
     $(".extra").remove();
   });
 
+  // display subtact-quantity popup
+  $(".subtract-quantity-btn").click(function () {
+    $(".subtract-quantity-popup-card-bg").css("display", "flex");
+    $(".subtract-quantity-popup-card").show();
+  });
+
+  // display add-quantity popup
+  $(".add-quantity-btn").click(function () {
+    $(".add-quantity-popup-card-bg").css("display", "flex");
+    $(".add-quantity-popup-card").show();
+  });
+
+  // display add-item popup
+  $(".add-item-btn").click(function () {
+    $(".add-item-popup-card-bg").css("display", "flex");
+    $(".add-item-popup-card").show();
+  });
+
   // display view details popup
   $(".view-popup-btn").click(function () {
     $(".view-popup-card-bg").css("display", "flex");
     $(".view-popup-card").show();
   });
 
-  // close create recipe popup using close icon
+  // display add-item popup
+  $(".add-supplier-btn").click(function () {
+    $(".add-supplier-popup-card-bg").css("display", "flex");
+    $(".add-supplier-popup-card").show();
+  });
+
+  // close popups using close button
   $(".cancel-btn").click(function () {
     $(".popup-card-bg").hide();
     $(".edit-popup-card-bg").hide();
+    $(".subtract-quantity-popup-card-bg").hide();
+    $(".add-item-popup-card-bg").hide();
+    $(".add-quantity-popup-card-bg").hide();
+    $(".add-supplier-popup-card-bg").hide();
   });
 
-  // close create recipe popup using cancel button
-  $(".popup-card > .fa-times").click(function () {
-    $(".popup-card-bg").hide();
-  });
-
-  // close create recipe popup using cancel button
-  $(".edit-popup-card > .fa-times").click(function () {
-    $(".edit-popup-card-bg").hide();
-  });
-
-  // close create recipe popup using cancel button
-  $(".view-popup-card > .fa-times").click(function () {
+  // close popups using close icon
+  $(".fa-times").click(function () {
     $(".view-popup-card-bg").hide();
+    $(".popup-card-bg").hide();
+    $(".edit-popup-card-bg").hide();
+    $(".subtract-quantity-popup-card-bg").hide();
+    $(".add-item-popup-card-bg").hide();
+    $(".add-quantity-popup-card-bg").hide();
+    $(".add-supplier-popup-card-bg").hide();
   });
 
-  $(".add-item-btn").click(function () {
+  $(".new-add-item-btn").click(function () {
     var $items = $("<div/>", { class: "items extra" }),
       $label1 = $("<label/>", { for: "items_names", text: "Item Name" }),
       $input1 = $("<input/>", {
@@ -181,11 +216,12 @@ function hideTabs() {
   $(".orders-tab").hide();
   $(".stocks-tab").hide();
   $(".recipe-tab").hide();
+  $(".suppliers-tab").hide();
 }
 
 // to hide the filter tabs
 function hideFilterTabs() {
-  $(".requests-tab").hide();
+  $(".pending-tab").hide();
   $(".ongoing-tab").hide();
   $(".delivered-tab").hide();
 }

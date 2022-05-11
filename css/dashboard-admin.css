@@ -63,10 +63,18 @@ input:focus {
   outline: none;
 }
 
+select:focus {
+  outline: none;
+}
+
 time {
   text-align: end;
   margin-left: 10px;
   color: var(--aaheli-black);
+}
+
+.hidden {
+  display: none;
 }
 
 .header > ul > li > a {
@@ -157,7 +165,8 @@ time {
 .recipe-tab,
 .stocks-tab,
 .delivered-tab,
-.ongoing-tab {
+.ongoing-tab,
+.suppliers-tab {
   display: none;
 }
 
@@ -165,7 +174,8 @@ time {
 .customers-tab,
 .orders-tab,
 .recipe-tab,
-.stocks-tab {
+.stocks-tab,
+.suppliers-tab {
   text-align: center;
 }
 
@@ -180,8 +190,7 @@ time {
 }
 
 .slidemenu {
-  min-width: 45%;
-  max-width: 60%;
+  width: 48%;
   margin-top: 5%;
   overflow: hidden;
 }
@@ -197,7 +206,7 @@ time {
 }
 
 .slidemenu label {
-  width: 20%;
+  width: 16%;
 }
 
 .barmenu label {
@@ -219,7 +228,7 @@ time {
 }
 
 .slider {
-  width: 100%;
+  width: 96%;
   height: 2px;
   display: block;
   background: #ccc;
@@ -227,7 +236,7 @@ time {
 }
 
 .slider .bar {
-  width: 20%;
+  width: 16%;
   height: 5px;
   background: var(--aaheli-red);
 }
@@ -251,16 +260,19 @@ time {
   margin-left: 0;
 }
 .slidemenu #slide-item-2:checked ~ .slider .bar {
-  margin-left: 20%;
+  margin-left: 17%;
 }
 .slidemenu #slide-item-3:checked ~ .slider .bar {
-  margin-left: 40%;
+  margin-left: 34%;
 }
 .slidemenu #slide-item-4:checked ~ .slider .bar {
-  margin-left: 60%;
+  margin-left: 50%;
 }
 .slidemenu #slide-item-5:checked ~ .slider .bar {
-  margin-left: 80%;
+  margin-left: 68%;
+}
+.slidemenu #slide-item-6:checked ~ .slider .bar {
+  margin-left: 84%;
 }
 
 .barmenu {
@@ -410,7 +422,7 @@ time {
 }
 
 /**REQUEST CARD ***/
-.request-item-card {
+.pending-item-card {
   display: flex;
   width: 600px;
   padding: 15px;
@@ -422,27 +434,26 @@ time {
   margin-bottom: 10px;
 }
 
-.request-item-card > p:first-child {
+.pending-item-card > p:first-child {
   color: var(--aaheli-red);
   font-weight: bold;
   margin-top: 10px;
 }
 
-.request-item-card > p:nth-child(2) {
+.pending-item-card > p:nth-child(2) {
   margin-left: 20px;
   min-width: 250px;
   max-width: 200px;
   text-align: start;
 }
 
-.request-item-card > p:nth-child(3) {
+.pending-item-card > p:nth-child(3) {
   text-align: start;
-  margin-left: 177px;
+  margin-left: 140px;
   font-size: 13px;
   color: var(--aaheli-red);
-  min-width: 140px;
-  max-width: 140px;
-  margin-top: 5px;
+  width: 160px;
+  margin-top: 15px;
 }
 
 /**ONGOING CARD ***/
@@ -466,19 +477,16 @@ time {
 
 .ongoing-item-card > p:nth-child(2) {
   margin-left: 20px;
-  min-width: 250px;
-  max-width: 200px;
+  width: 250px;
   text-align: start;
 }
 
 .ongoing-item-card > p:nth-child(3) {
   text-align: start;
-  margin-left: 15px;
   font-size: 13px;
   color: var(--aaheli-red);
-  min-width: 140px;
-  max-width: 140px;
-  margin-top: 5px;
+  width: 150px;
+  margin-top: 15px;
 }
 
 .ongoing-item-card > button {
@@ -601,10 +609,14 @@ time {
   padding-right: 25px;
 }
 
-/***** POPUP CARD ******/
+/****************************************** POPUP CARDS ********************************/
 .popup-card-bg,
 .edit-popup-card-bg,
-.view-popup-card-bg {
+.view-popup-card-bg,
+.add-quantity-popup-card-bg,
+.add-item-popup-card-bg,
+.subtract-quantity-popup-card-bg,
+.add-supplier-popup-card-bg {
   display: none;
   position: fixed;
   top: 0;
@@ -618,7 +630,11 @@ time {
 
 .popup-card,
 .edit-popup-card,
-.view-popup-card {
+.view-popup-card,
+.add-item-popup-card,
+.add-quantity-popup-card,
+.subtract-quantity-popup-card,
+.add-supplier-popup-card {
   display: none;
   position: relative;
   padding: 15px;
@@ -645,10 +661,36 @@ time {
   height: 340px;
 }
 
+.subtract-quantity-popup-card {
+  width: 250px;
+  height: 150px;
+}
+
+.add-item-popup-card,
+.add-quantity-popup-card {
+  width: 350px;
+  height: 260px;
+}
+
 .popup-card-middle,
 .edit-popup-card-middle {
   overflow: auto;
   height: 190px;
+}
+
+.add-item-popup-card-middle,
+.add-quantity-popup-card-middle {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.add-item-popup-card-middle div,
+.add-quantity-popup-card-middle div {
+  width: 290px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 35px;
 }
 
 .view-popup-card-middle {
@@ -711,10 +753,21 @@ time {
 
 .popup-card h2,
 .edit-popup-card h2,
-.view-popup-card h2 {
+.view-popup-card h2,
+.subtract-quantity-popup-card h2,
+.add-quantity-popup-card h2,
+.add-item-popup-card h2,
+.add-quantity-popup-card h2, 
+.add-supplier-popup-card h2 {
   font-family: "Poppins Bold", sans-serif;
   float: left;
   margin-left: 12px;
+}
+
+.subtract-quantity-popup-card #subtract_item_quantity {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 
 .popup-card .items,
@@ -723,12 +776,44 @@ time {
   justify-content: center;
 }
 
-/**ITEMS*/
+/*********** ITEMS **************/
+
 .items > input,
-#recipe_name {
+.add-item-popup-card-middle input,
+.add-quantity-popup-card-middle input,
+.add-supplier-popup-card-middle input,
+select {
   padding: 5px;
   border: 1px solid black;
   border-radius: 8px;
+}
+
+.items > input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#old_item_name{
+  font-weight: 900;
+  border: none;
+  background-color: var(--aaheli-white);
+}
+
+#new_recipe_name {
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: var(--aaheli-white);
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#edit_recipe_name {
+  font-weight: 900;
+  font-size: 18px;
+  border: none;
+  background-color: var(--aaheli-white);
+  padding: 5px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -750,9 +835,22 @@ time {
   margin-top: 3px;
 }
 
+/***************** POPUP FOOTER *************/
 .popup-footer,
 .edit-popup-footer {
   margin-top: 8px;
+}
+
+.subtract-quantity-popup-footer,
+.add-item-popup-footer,
+.add-quantity-popup-footer,
+.add-supplier-popup-footer {
+  margin-top: 20px;
+}
+
+#subtract_btn {
+  float: right;
+  margin-right: 10px;
 }
 
 #add_item,
@@ -763,6 +861,9 @@ time {
 
 #cancel_btn,
 #create_recipe,
+#add_item_btn,
+#add_supplier_btn,
+#add_quantity_btn,
 #edit_recipe_btn {
   float: right;
 }
@@ -773,13 +874,21 @@ time {
 }
 
 .popup-card form,
-.edit-popup-card form {
+.edit-popup-card form,
+.subtract-quantity-popup-card form,
+.add-quantity-popup-card form,
+.add-item-popup-card form,
+.add-supplier-popup-card form {
   margin-top: 20px;
 }
 
 .popup-card .fa-times,
 .edit-popup-card .fa-times,
-.view-popup-card .fa-times {
+.view-popup-card .fa-times,
+.subtract-quantity-popup-card .fa-times,
+.add-quantity-popup-card .fa-times,
+.add-item-popup-card .fa-times,
+.add-supplier-popup-card .fa-times {
   float: right;
   color: var(--aaheli-red);
   font-size: 22px;
@@ -790,7 +899,11 @@ time {
 
 .popup-card .sub-line,
 .edit-popup-card .sub-line,
-.view-popup-card .sub-line {
+.view-popup-card .sub-line,
+.subtract-quantity-popup-card .sub-line,
+.add-quantity-popup-card .sub-line,
+.add-item-popup-card .sub-line,
+.add-supplier-popup-card .sub-line {
   margin-top: 38px;
   height: 0.5px;
 }
@@ -798,7 +911,8 @@ time {
 .no-orders-tab p,
 .no-recipes-tab p,
 .no-customers-tab p,
-.no-stocks-tab p {
+.no-stocks-tab p,
+.no-suppliers-tab p {
   color: var(--aaheli-red);
   margin-right: 10px;
 }
@@ -806,14 +920,16 @@ time {
 .no-orders-tab,
 .no-recipes-tab,
 .no-customers-tab,
-.no-stocks-tab {
+.no-stocks-tab,
+.no-suppliers-tab {
   margin-top: 140px;
 }
 
 .no-orders-tab h1,
 .no-recipes-tab h1,
 .no-customers-tab h1,
-.no-stocks-tab h1 {
+.no-stocks-tab h1,
+.no-suppliers-tab h1 {
   font-family: "Poppins Bold";
   font-size: 30px;
 }
@@ -821,7 +937,8 @@ time {
 .no-orders-tab a,
 .no-recipes-tab a,
 .no-customers-tab a,
-.no-stocks-tab a {
+.no-stocks-tab a,
+.no-suppliers-tab a {
   font-size: 15px;
   color: var(--aaheli-black);
 }
@@ -859,7 +976,7 @@ time {
 }
 
 .stocks-card > p:first-child {
-  margin-top: 16px;
+  /* margin-top: 16px; */
   color: var(--aaheli-red);
   font-weight: bold;
 }
@@ -874,49 +991,93 @@ time {
   max-width: 250px;
 }
 
-.stocks-details > p:nth-child(2) {
-  font-family: "Poppins Bold";
-  font-size: 15px;
-  margin-top: 0;
-  text-align: start;
-  color: var(--aaheli-red);
-  width: 250px;
-}
-
 .stocks-card .edit-section {
   display: flex;
-  margin-left: 35px;
+  /* margin-left: 145px; */
+  margin-left: 50px;
 }
 
-.stocks-card .edit-section > p:first-child {
-  margin-top: 16px;
+.stocks-card .edit-section > p:nth-child(2) {
+  font-family: "Poppins Bold";
+  font-size: 15px;
+  /* text-align: start; */
+  color: var(--aaheli-red);
+  width: 80px;
+  /* max-width: 120px; */
+}
+
+.stocks-card .edit-section > p:nth-child(4) {
+  /* margin-top: 16px; */
   color: var(--aaheli-green);
   cursor: pointer;
 }
 
-.stocks-card .edit-section > p:first-child:hover {
+.stocks-card .edit-section > p:nth-child(4):hover {
   color: var(--aaheli-dark-green);
 }
 
-.stocks-card .edit-section > p:nth-child(2) {
-  margin-top: 16px;
+.stocks-card .edit-section > button {
+  /* margin-top: 8px; */
+  height: 30px;
+  margin-left: 10px;
+  /* TOP RIGHT BOTTOM LEFT*/
+  padding: 0px 15px 0px 15px;
+}
+
+/***************************************** END STOCKS TAB ****************************************/
+
+/***************************************** START  SUPPLIER TAB ***************************************/
+
+.supplier-card {
+  display: flex;
+  width: 500px;
+  padding: 15px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin-top: 17px;
+  margin-left: 498px;
+  margin-bottom: 10px;
+}
+
+.supplier-list-tab > button {
+  font-size: 12px;
+  margin-left: 472px;
+  margin-top: 12px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.supplier-list-tab p {
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+.supplier-card > p:first-child {
+  /* margin-top: 16px; */
+  color: var(--aaheli-red);
+  font-weight: bold;
+}
+
+.supplier-details > p:first-child {
+  text-align: start;
+  min-width: 200px;
+  max-width: 250px;
+}
+
+.supplier-card .edit-section > p:first-child {
   color: var(--aaheli-red);
   cursor: pointer;
 }
 
-.stocks-card .edit-section > p:nth-child(2):hover {
+.supplier-card .edit-section > p:first-child:hover {
   color: var(--aaheli-dark-red);
 }
 
-.stocks-card .edit-section > button {
-  margin-top: 8px;
-  height: 40px;
-  margin-left: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
+.supplier-card .edit-section {
+  margin-left: 200px;
 }
 
-/***************************************** END STOCKS TAB ****************************************/
+/***************************************** END SUPPLIER TAB ****************************************/
 
 /***************************************** START FOOTER  ***************************************/
 .header > ul,
