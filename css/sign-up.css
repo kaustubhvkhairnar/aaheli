@@ -31,11 +31,13 @@ body::-webkit-scrollbar-thumb {
   font-family: "Poppins", sans-serif;
   font-size: large;
 }
+
 body {
-  background-image: url("/images/Background.png");
+  background-image: url("../images/Background.png");
   background-size: cover;
   background-color: var(--aaheli-lightest-grey);
 }
+
 .header > ul > li > a {
   text-decoration: none;
 }
@@ -46,6 +48,7 @@ body {
   height: 40px;
   border-radius: 100%;
 }
+
 .link-btn {
   text-decoration: none;
   color: var(--aaheli-white);
@@ -55,10 +58,12 @@ body {
 .logo-title {
   font-size: 25px;
 }
+
 .header > ul > li:nth-child(2) {
   margin-top: 1.4%;
   margin-left: 0.4%;
 }
+
 ul {
   list-style-type: none;
   overflow: hidden;
@@ -71,7 +76,8 @@ li {
 
 .footer {
   background-color: var(--aaheli-red);
-  margin-top: 2%;
+  margin-top: 6%;
+
   padding: 2%;
   flex-shrink: 0;
 }
@@ -95,6 +101,12 @@ li {
 }
 #copyright {
   padding: 10px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sign-up-card > img {
@@ -125,7 +137,7 @@ li {
   margin-top: 3%;
 }
 
-.sign-up-form > input[type="submit"] {
+.sign-up-form > input[type="button"] {
   font-family: "Open Sans";
   border-radius: 8px;
   background-color: var(--aaheli-black);
@@ -137,19 +149,14 @@ li {
   width: 76.7%;
   cursor: pointer;
 }
-.sign-up-form > input[type="submit"]:hover {
-  background-color: var(--aaheli-grey);
-}
 
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.sign-up-form > input[type="button"]:hover {
+  background-color: var(--aaheli-grey);
 }
 
 .sign-up-card {
   text-align: center;
-  margin-top: 2%;
+  margin-top: 4.8%;
   background-color: var(--aaheli-white);
   box-shadow: -8px 7px 20px rgba(0, 0, 0, 0.25);
   border-radius: 38px;
@@ -163,4 +170,53 @@ li {
   margin-top: 8%;
   margin-left: 15%;
   float: left;
+}
+
+.password-card {
+  display: none;
+  text-align: center;
+  margin-top: 8%;
+  background-color: var(--aaheli-white);
+  box-shadow: -8px 7px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 38px;
+  min-height: 50vh;
+  width: 25%;
+}
+
+.password-card > img {
+  margin-top: 5.6%;
+  height: 25%;
+  width: 20%;
+}
+
+.password-form > input[type="password"] {
+  border: 1px solid rgba(107, 107, 107, 0.5);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 77%;
+  font-size: 12px;
+  outline: none;
+  margin-top: 5%;
+}
+
+.password-form > input[type="button"] {
+  font-family: "Open Sans";
+  border-radius: 8px;
+  background-color: var(--aaheli-black);
+  color: var(--aaheli-white);
+  border: none;
+  font-size: 16px;
+  margin-top: 4%;
+  padding: 12px 16px;
+  width: 76.7%;
+  cursor: pointer;
+}
+
+#create {
+  margin-top: 8%;
+}
+.password-form > input[type="button"]:hover,
+.password-form > input[type="button"]:hover {
+  background-color: var(--aaheli-grey);
 }
