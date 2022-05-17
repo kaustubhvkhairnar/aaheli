@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/sign-up.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Sign Up</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <ul>
+        <li>
+          <a href="/index.php">
+            <img src="images/logo.jpg" alt="aaheli-logo" />
+          </a>
+        </li>
+        <li>
+          <a class="link-btn logo-title" href="/index.php"> Aaheli </a>
+        </li>
+        <li id="login-btn">
+          <a class="link-btn" href="/log-in.php">Log In</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex-container">
+      <div class="sign-up-card">
+        <img src="images/logo-tab 6.png" alt="" />
+        <form class="sign-up-form" action="" method="post">
+          <input
+            id="customer_name"
+            name="customer_name"
+            type="text"
+            placeholder="Customer Name"
+          /><br />
+          <input
+            id="email"
+            name="email"
+            type="text"
+            placeholder="Email ID"
+          /><br />
+          <input
+            id="company_name"
+            name="company_name"
+            type="text"
+            placeholder="Company Name"
+          /><br />
+          <textarea
+            id="office_address"
+            name="office_address"
+            placeholder="Office &emsp;&emsp;&emsp;address"
+            cols="17"
+            rows="5"
+          ></textarea>
+          <textarea
+            id="warehouse_address"
+            name="warehouse_address"
+            placeholder="Warehouse address"
+            cols="17"
+            rows="5"
+          ></textarea
+          ><br />
+          <input
+            id="gstin"
+            name="gstin"
+            type="text"
+            placeholder="GSTIN"
+          /><br />
+          <input
+            id="contact_no"
+            name="contact_no"
+            type="text"
+            placeholder="Contact number"
+          /><br />
+
+          <input
+            class="sign-up-btn"
+            name="button"
+            type="button"
+            value="Sign Up"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="flex-container">
+      <div class="password-card">
+        <img src="images/logo-tab 6.png" alt="" />
+        <form class="password-form" action="password.php" method="post">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+          /><br />
+          <input
+            id="confirm_password"
+            name="confirm_password"
+            type="password"
+            placeholder="Confirm password"
+          /><br />
+
+          <input
+            type="button"
+            name="create"
+            id="create"
+            value="Create Password"
+          />
+          <input type="button" name="go_back" id="go_back" value="Go Back" />
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      <ul>
+        <li id="copyright">
+          <a class="link-btn" href="#"> &copy; Aaheli, 2022 </a>
+        </li>
+        <li id="contact">
+          <a class="link-btn" href="/contact-us.php">Contact Us</a>
+        </li>
+        <li id="about">
+          <a class="link-btn" href="/about-us.php">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script src="js/index.js"></script>
+</html>
