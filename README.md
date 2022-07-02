@@ -1,5 +1,4 @@
-# Aaheli
-## Inventory management system
+# Aaheli ## Inventory management system
 
 This system is for Aaheli food manufacturing unit. Aaheli is located at Aurangabad, Maharashtra. Aaheli manufactures food products for companies
 / customers who has their recipes but need a manufacturer to process it in
